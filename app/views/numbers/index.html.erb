@@ -1,0 +1,41 @@
+<!-- <h1>PhoneNumbers#main</h1>
+<p>Find me in app/views/phone_numbers/main.html.erb</p> -->
+
+<!DOCTYPE html>
+<head>
+  <title>Lu's Skills Assessment</title>
+  <style>
+    body {
+      padding-top: 20px;
+      text-align: center;
+      background-color: white;
+      background-size: cover;
+      background-position: center;
+      color: black;
+      font-family: helvetica;
+    }
+    p {
+      font-size: 18px;
+    }
+    input {
+      border: 1;
+      border-color: black;
+      padding: 12px;
+      font-size: 14px;
+    }
+    input[type="submit"] {
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <p style="line-height: 30px">Hi there! <br/>Please enter your name and phone number to say hello.</p>
+
+  <form action='numbers-controller.rb' name='numbers-controller' id='numbers-controller' method='post'>
+  <p><input name='numbers' type='text' placeholder='555-555-5555'/></p>
+  <p><input type='submit' value='create'/></p>
+  
+</form>
+
+</body>
