@@ -1,5 +1,5 @@
 class NumbersController < ApplicationController
-    skip_before_filter :verify_authenticity_token, :only => [:create]
+    before_action :set_number, only: [:show, :edit, :update, :destroy]
 
     def index
 		@numbers = Number.all
@@ -8,6 +8,12 @@ class NumbersController < ApplicationController
 	def new
 		@number = Number.new
 	end
+
+	def show
+    end
+
+    def edit
+    end
 
 	def create
 		account_sid = 'AC7ffe0262875158a08c112f7f3f60958c' 
@@ -35,6 +41,21 @@ class NumbersController < ApplicationController
 	      end
 	    end
 	end
+
+  def destroy
+    @number.destroy
+    respond_to do |format|
+      format.html { redirect_to numbers_url, notice: 'Number was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_number
+      @number = Numbers.find(params[:id])
+    end
+
 
 	def number_params
 		params.require(:number).permit(:tocall)
